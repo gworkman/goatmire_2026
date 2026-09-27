@@ -119,7 +119,10 @@
   show strong: set text(weight: "semibold")
   show link: it => underline(stroke: 1.5pt + palette.accent, offset: 3pt, it)
 
-  show raw: set text(font: mono-font, size: 0.8em)
+  show raw: set text(font: mono-font)
+  // Typst shrinks raw text to 0.8em by default; bring inline code back up to
+  // roughly match the surrounding body text.
+  show raw.where(block: false): set text(size: 1.2em)
   show raw.where(block: false): it => box(
     fill: palette.surface,
     inset: (x: 4pt),
