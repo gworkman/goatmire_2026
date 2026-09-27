@@ -1,7 +1,7 @@
 TYPST ?= typst
 FLAGS := --font-path fonts
 OUT   := build/goatmire-2026.pdf
-SRC   := $(shell find . -name '*.typ' -not -path './build/*') $(wildcard images/*)
+SRC   := $(shell find . -name '*.typ' -not -path './build/*') $(shell find images -type f)
 
 .PHONY: all watch open clean
 

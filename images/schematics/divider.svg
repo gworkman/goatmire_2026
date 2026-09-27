@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 350">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="110" cy="30" r="6" fill="#FFFFFF"/>
+<text x="86" y="30" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#15141A" stroke="none" text-anchor="end" dominant-baseline="central">V<tspan font-size="14.3" dy="5.5">in</tspan></text>
+<polyline points="110,36 110,70"/>
+<polyline points="110,70 94,81.4286 126,92.8571 94,104.286 126,115.714 94,127.143 126,138.571 110,150"/>
+<text x="140" y="110" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">R<tspan font-size="14.3" dy="5.5">1</tspan></text>
+<polyline points="110,150 110,200"/>
+<circle cx="110" cy="175" r="5" fill="#15141A" stroke="none"/>
+<polyline points="110,175 230,175" stroke="#FF5B1F"/>
+<circle cx="236" cy="175" r="6" fill="#FFFFFF"/>
+<text x="252" y="175" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="start" dominant-baseline="central">V<tspan font-size="14.3" dy="5.5">out</tspan></text>
+<polyline points="110,200 94,211.429 126,222.857 94,234.286 126,245.714 94,257.143 126,268.571 110,280" stroke="#15141A"/>
+<text x="140" y="240" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">R<tspan font-size="14.3" dy="5.5">2</tspan></text>
+<polyline points="110,280 110,300"/>
+<polyline points="84,300 136,300"/>
+<polyline points="94,310 126,310"/>
+<polyline points="104,320 116,320"/>
+</g>
+</svg>

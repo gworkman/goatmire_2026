@@ -10,6 +10,7 @@
 #include "slides/03-introductions.typ"
 #include "slides/04-hardware.typ"
 #include "slides/05-arrival.typ"
+#include "slides/06-electronics.typ"
 
 // Reference deck with every layout and component:
 // #include "slides/examples.typ"

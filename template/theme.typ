@@ -539,6 +539,30 @@
   )).flatten(),
 )
 
+// Stacked fraction in the body font (Typst's math fonts are all serif).
+// The bar sits at roughly the height of a "=" or "×" sign.
+#let frac(num, den) = context {
+  // Extra room above the bar: subscripts drop below the baseline, which
+  // `measure` doesn't account for.
+  let gap-above = 0.4em.to-absolute()
+  let gap-below = 0.15em.to-absolute()
+  let bar = 0.06em.to-absolute()
+  let width = calc.max(measure(num).width, measure(den).width) + 0.3em.to-absolute()
+  box(
+    baseline: measure(den).height + gap-below + bar / 2 - 0.3em.to-absolute(),
+    stack(
+      align(center, num),
+      v(gap-above),
+      line(length: width, stroke: bar + palette.ink),
+      v(gap-below),
+      align(center, den),
+    ),
+  )
+}
+
+// Subscript helper for variable names like V_out: #var[V][out].
+#let var(name, sub) = [#name#text(size: 0.6em, baseline: 0.25em, sub)]
+
 // Boxed node for simple block diagrams.
 #let node(body, fill: palette.paper, fg: palette.ink, width: auto) = box(
   width: width,

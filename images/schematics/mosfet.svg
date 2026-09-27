@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="20,145 80,145"/>
+<polyline points="80,65 80,155" stroke-width="4"/>
+<polyline points="95,62 95,88" stroke-width="5"/>
+<polyline points="95,98 95,122" stroke-width="5"/>
+<polyline points="95,132 95,158" stroke-width="5"/>
+<polyline points="95,75 145,75 145,15"/>
+<polyline points="95,145 145,145 145,205"/>
+<polyline points="95,110 145,110 145,145"/>
+<circle cx="145" cy="145" r="4" fill="#15141A" stroke="none"/>
+<polygon points="98,110 116,101 116,119" fill="#15141A" stroke="none"/>
+<text x="20" y="125" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">G</text>
+<text x="160" y="25" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">D</text>
+<text x="160" y="195" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">S</text>
+</g>
+</svg>

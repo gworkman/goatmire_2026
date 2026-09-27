@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="10,60 90,60"/>
+<polygon points="90,25 90,95 150,60" fill="#15141A" stroke="none"/>
+<polyline points="150,25 150,95" stroke-width="5"/>
+<polyline points="150,60 230,60"/>
+<text x="30" y="30" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">A</text>
+<text x="210" y="30" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">K</text>
+<polyline points="70,128 160,128" stroke="#FF5B1F"/>
+<polygon points="176,128 160,120 160,136" fill="#FF5B1F" stroke="none"/>
+</g>
+</svg>
