@@ -118,7 +118,7 @@
   <rect x="339.5" y="489.3" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
   <text x="353.2" y="506.0" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">.</text>
   <rect x="373.8" y="489.3" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
-  <text x="387.5" y="506.0" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">\</text>
+  <text x="387.5" y="506.0" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">/</text>
   <rect x="408.2" y="489.3" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
   <text x="421.9" y="506.0" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">↑</text>
   <rect x="442.6" y="489.3" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
@@ -130,7 +130,7 @@
   <rect x="98.8" y="531.7" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
   <text x="112.5" y="548.3" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="9" font-weight="500" text-anchor="middle" dominant-baseline="central">Alt</text>
   <rect x="133.2" y="531.7" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
-  <text x="146.8" y="548.3" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">/</text>
+  <text x="146.8" y="548.3" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="13" font-weight="500" text-anchor="middle" dominant-baseline="central">\</text>
   <rect x="167.5" y="531.7" width="164.9" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
   <rect x="339.5" y="531.7" width="27.4" height="33.3" rx="5" fill="#2A2830" stroke="#15141A" stroke-width="1.5"/>
   <text x="353.2" y="548.3" fill="#F6F2EA" font-family="'DejaVu Sans Mono', Menlo, 'SF Mono', Monaco, Consolas, 'Roboto Mono', 'Liberation Mono', sans-serif" font-size="9" font-weight="500" text-anchor="middle" dominant-baseline="central">Alt</text>

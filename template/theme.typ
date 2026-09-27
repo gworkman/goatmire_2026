@@ -278,8 +278,10 @@
 
 // Image fills the whole page, untouched: no title, overlay or top bar. For
 // images that are already a finished 16:9 slide. Only the page number shows.
-#let image-page(src) = page(
-  background: _img(src, width: 100%, height: 100%, fit: "cover"),
+// `fit: "contain"` shows the whole image on `fill` instead of cropping it.
+#let image-page(src, fit: "cover", fill: palette.paper) = page(
+  fill: fill,
+  background: _img(src, width: 100%, height: 100%, fit: fit),
   footer: _footer(pill: true, brand: false),
   [],
 )

@@ -23,7 +23,7 @@ BEZEL = 1.4 * U
 # Each row is a list of (width in grid columns, label) pairs. Widths may be
 # fractional. Labels: text, a Shape, "" for a blank key, or None for an
 # empty slot (no key drawn).
-# NOTE: letter/punctuation positions are assumed QWERTY; the edge keys are real.
+# Legends match the keyboard matrix in the badge schematic.
 COLS = 13
 
 
@@ -52,8 +52,8 @@ ROWS = [
     row("~ 1 2 3 4 5 6 7 8 9 0 - ="),
     row("Tab Q W E R T Y U I O P [ ]"),
     row("Fn A S D F G H J K L ; ' ↵"),
-    row("⇧ Z X C V B N M , . \\ ↑ ⇧"),
-    row("Ctrl Super Alt /") + [(5, "")] + row("Alt ← ↓ →"),
+    row("⇧ Z X C V B N M , . / ↑ ⇧"),
+    row("Ctrl Super Alt \\") + [(5, "")] + row("Alt ← ↓ →"),
 ]
 
 KEY_FILL = "#2A2830"
