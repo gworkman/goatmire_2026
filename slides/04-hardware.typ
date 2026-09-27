@@ -15,7 +15,7 @@
       ([Memory], [4 MB flash, 2 MB PSRAM]),
       ([Wireless], [Wi-Fi 802.11 b/g/n, Bluetooth LE 5]),
       ([Display], [2.8" LCD]),
-      ([Keyboard], [56 keys, 69 characters]),
+      ([Keyboard], [69 keys]),
       ([Sensors], [3-axis accelerometer, temperature]),
       ([Size], [100 × 120 mm]),
     )
