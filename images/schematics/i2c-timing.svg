@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 305">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="213,40 213,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="293,40 293,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="373,40 373,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="453,40 453,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="533,40 533,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="613,40 613,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="693,40 693,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="773,40 773,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<polyline points="853,40 853,262" stroke="#6E6A62" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="4 5"/>
+<text x="20" y="95" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">SCL</text>
+<text x="20" y="215" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="start" dominant-baseline="central">SDA</text>
+<polyline points="143,30 143,262" stroke="#FF5B1F" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="143" y="18" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">START</text>
+<polyline points="963,30 963,262" stroke="#FF5B1F" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="963" y="18" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">STOP</text>
+<rect x="833" y="182" width="74" height="66" rx="4" fill="#1F8A84" fill-opacity="0.15" stroke="none"/>
+<polyline points="90,70 160,70 166,120 210,120 216,70 250,70 256,120 290,120 296,70 330,70 336,120 370,120 376,70 410,70 416,120 450,120 456,70 490,70 496,120 530,120 536,70 570,70 576,120 610,120 616,70 650,70 656,120 690,120 696,70 730,70 736,120 770,120 776,70 810,70 816,120 850,120 856,70 890,70 896,120 930,120 936,70 1000,70"/>
+<polyline points="90,190 140,190 146,240 190,240 196,190 430,190 436,240 960,240 966,190 1000,190"/>
+<text x="230" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="310" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="390" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="470" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="550" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="630" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="710" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="790" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">W</text>
+<text x="870" y="160" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#1F8A84" stroke="none" text-anchor="middle" dominant-baseline="central">ACK</text>
+<polyline points="194,262 194,270 746,270 746,262" stroke-width="2"/>
+<text x="470" y="292" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">Address 0x70</text>
+</g>
+</svg>

@@ -191,6 +191,216 @@ def divider(show_current=False, highlight_r2=False):
     return svg(320, 350, "\n".join(parts))
 
 
+# --- Keyboard matrix ---------------------------------------------------------
+
+MX_COLS = [160, 290, 420]
+MX_ROWS = [86, 196, 306]
+MX_LEFT, MX_RIGHT, MX_TOP, MX_BOTTOM = 110, 490, 36, 326
+KEY = 30  # key box size
+
+
+def _key_anchor(c, r):
+    """Where a key connects: (column tap y, key box x0, row tap x)."""
+    x, y = MX_COLS[c], MX_ROWS[r]
+    return y - 35, x + 30, x + 45
+
+
+def matrix(active_col=None, pressed=(), ghost=None, path=None):
+    """3x3 slice of the keyboard matrix. Columns are driven, rows are read."""
+    parts = []
+    if path:
+        parts.append(line(*path, stroke=ACCENT, stroke_width=12, stroke_opacity=0.25))
+    for c, x in enumerate(MX_COLS):
+        color = ACCENT if c == active_col else INK
+        parts.append(line((x, MX_TOP), (x, MX_BOTTOM), stroke=color))
+        parts.append(label(x, MX_TOP - 22, f"COL{c}", size=18, anchor="middle", fill=color))
+    for r, y in enumerate(MX_ROWS):
+        parts.append(line((MX_LEFT, y), (MX_RIGHT, y)))
+        parts.append(label(MX_LEFT - 12, y, f"ROW{r}", size=18, anchor="end"))
+    for c, x in enumerate(MX_COLS):
+        for r, y in enumerate(MX_ROWS):
+            ty, bx, rx = _key_anchor(c, r)
+            is_ghost = ghost == (c, r)
+            fill = ACCENT if (c, r) in pressed else "#FFFFFF"
+            stroke = ACCENT if is_ghost else INK
+            dash = ' stroke-dasharray="5 4"' if is_ghost else ""
+            parts += [
+                line((x, ty), (bx, ty)),
+                f'<rect x="{bx}" y="{ty - KEY / 2}" width="{KEY}" height="{KEY}" rx="4" fill="{fill}" stroke="{stroke}"{dash}/>',
+                line((rx, ty + KEY / 2), (rx, y)),
+                dot(x, ty, r=4),
+                dot(rx, y, r=4),
+            ]
+            if is_ghost:
+                parts.append(label(bx + KEY / 2, ty, "?", size=18, anchor="middle", fill=ACCENT))
+    return svg(520, 346, "\n".join(parts))
+
+
+def matrix_scan():
+    # COL1 driven low, key (COL1, ROW1) pressed: ROW1 is pulled low.
+    ty, bx, rx = _key_anchor(1, 1)
+    path = [(MX_COLS[1], MX_TOP), (MX_COLS[1], ty), (rx, ty), (rx, MX_ROWS[1]), (MX_LEFT, MX_ROWS[1])]
+    return matrix(active_col=1, pressed={(1, 1)}, path=path)
+
+
+# --- I2C bus -------------------------------------------------------------------
+
+
+def i2c_bus():
+    sda, scl = 130, 185
+    x0, x1 = 170, 760
+    devices = [(380, "Temperature", "0x70"), (530, "Accelerometer", "0x19"), (680, "Qwiic port", "")]
+    parts = [
+        # controller
+        f'<rect x="20" y="{sda - 30}" width="150" height="{scl - sda + 60}" rx="6" fill="#FFFFFF"/>',
+        label(95, (sda + scl) / 2, "ESP32-S3", size=20, anchor="middle"),
+        # 3.3 V rail and pull-ups
+        line((215, 40), (300, 40)),
+        label(258, 20, "3.3 V", size=18, anchor="middle"),
+        line((230, 40), (230, 55)), line(*zigzag_v(230, 55, 105, amp=10, peaks=5)), line((230, 105), (230, sda)),
+        line((285, 40), (285, 55)), line(*zigzag_v(285, 55, 105, amp=10, peaks=5)), line((285, 105), (285, scl)),
+        dot(230, sda), dot(285, scl),
+        # bus lines
+        line((x0, sda), (x1, sda), stroke=ACCENT),
+        line((x0, scl), (x1, scl), stroke=ACCENT),
+        label(x1 + 12, sda, "SDA", size=18, fill=ACCENT),
+        label(x1 + 12, scl, "SCL", size=18, fill=ACCENT),
+    ]
+    for cx, name, addr in devices:
+        top = 235
+        parts += [
+            line((cx - 20, sda), (cx - 20, top)), dot(cx - 20, sda),
+            line((cx + 20, scl), (cx + 20, top)), dot(cx + 20, scl),
+            f'<rect x="{cx - 65}" y="{top}" width="130" height="62" rx="6" fill="#FFFFFF"/>',
+            label(cx, top + (20 if addr else 31), name, size=16, anchor="middle"),
+        ]
+        if addr:
+            parts.append(label(cx, top + 43, addr, size=16, anchor="middle", fill=ACCENT))
+    return svg(830, 310, "\n".join(parts))
+
+
+TEAL = "#1F8A84"
+
+
+def switch(x, y0, closed=False, color=INK):
+    """Vertical switch from (x, y0) down to (x, y0 + 40)."""
+    tip = (x, y0 + 40) if closed else (x + 20, y0 + 34)
+    return "\n".join([
+        dot(x, y0, r=4, fill=color),
+        line((x, y0), tip, stroke=color),
+        dot(x, y0 + 40, r=4, fill=color),
+    ])
+
+
+def ground(x, y, color=INK):
+    return "\n".join([
+        line((x - 16, y), (x + 16, y), stroke=color),
+        line((x - 10, y + 7), (x + 10, y + 7), stroke=color),
+        line((x - 4, y + 14), (x + 4, y + 14), stroke=color),
+    ])
+
+
+def open_drain():
+    """One bus line, a pull-up, and three devices that can only pull it low."""
+    bus, rail = 150, 40
+    rx = 110
+    devices = [(290, "ESP32", False), (430, "Temperature", True), (570, "Accelerometer", False)]
+    active = next(x for x, _, closed in devices if closed)
+    parts = [
+        # current path: pull-up, along the bus, through the closed switch
+        line((rx, rail + 10), (rx, bus), (active, bus), (active, 250), stroke=ACCENT, stroke_width=12, stroke_opacity=0.25),
+        line((rx - 40, rail), (rx + 40, rail)),
+        label(rx, rail - 20, "3.3 V", size=18, anchor="middle"),
+        line((rx, rail), (rx, rail + 15)),
+        line(*zigzag_v(rx, rail + 15, bus - 25, amp=12, peaks=5)),
+        line((rx, bus - 25), (rx, bus)),
+        label(rx - 22, (rail + bus) / 2 - 4, "pull-up", size=16, anchor="end"),
+        dot(rx, bus),
+        line((rx, bus), (680, bus), stroke=ACCENT),
+        label(692, bus, "SDA", size=18, fill=ACCENT),
+    ]
+    for x, name, closed in devices:
+        color = ACCENT if closed else INK
+        parts += [
+            dot(x, bus),
+            line((x, bus), (x, 200), stroke=color),
+            switch(x, 200, closed=closed, color=color),
+            line((x, 240), (x, 262), stroke=color),
+            ground(x, 262, color=color),
+            label(x, 305, name, size=16, anchor="middle", fill=color),
+        ]
+    return svg(740, 325, "\n".join(parts))
+
+
+def i2c_timing():
+    """SCL/SDA waveforms: START, address 0x70, write bit, ACK, STOP."""
+    scl_hi, scl_lo = 70, 120
+    sda_hi, sda_lo = 190, 240
+    x_start, x_end = 90, 1000
+    t_start = 140          # SDA falls while SCL is high
+    first = 190            # first bit period starts here
+    period = 80
+    edge = 6
+    bits = [1, 1, 1, 0, 0, 0, 0, 0, 0]  # 0x70, write (0), ACK (0)
+    names = ["1", "1", "1", "0", "0", "0", "0", "W", "ACK"]
+    t_stop_clk = first + len(bits) * period + 20
+    t_stop = t_stop_clk + 30
+
+    # SCL
+    scl = [(x_start, scl_hi), (first - 30, scl_hi), (first - 30 + edge, scl_lo)]
+    for i in range(len(bits)):
+        xb = first + i * period
+        scl += [(xb + 20, scl_lo), (xb + 20 + edge, scl_hi), (xb + 60, scl_hi), (xb + 60 + edge, scl_lo)]
+    scl += [(t_stop_clk, scl_lo), (t_stop_clk + edge, scl_hi), (x_end, scl_hi)]
+
+    # SDA
+    level = 1
+    sda = [(x_start, sda_hi), (t_start, sda_hi), (t_start + edge, sda_lo)]
+    level = 0
+
+    def y(l):
+        return sda_hi if l else sda_lo
+
+    for i, b in enumerate(bits):
+        xb = first + i * period
+        if b != level:
+            sda += [(xb, y(level)), (xb + edge, y(b))]
+            level = b
+    sda += [(t_stop, y(level)), (t_stop + edge, sda_hi), (x_end, sda_hi)]
+
+    ack_x = first + 8 * period
+    # SDA is sampled while SCL is high: mark each rising clock edge
+    sample_lines = [
+        line((first + i * period + 20 + edge / 2, 40), (first + i * period + 20 + edge / 2, 262),
+             stroke="#6E6A62", stroke_width=2, stroke_opacity=0.5, stroke_dasharray="4 5")
+        for i in range(len(bits))
+    ]
+    parts = sample_lines + [
+        label(20, (scl_hi + scl_lo) / 2, "SCL", size=20),
+        label(20, (sda_hi + sda_lo) / 2, "SDA", size=20),
+        # START / STOP markers
+        line((t_start + 3, 30), (t_start + 3, 262), stroke=ACCENT, stroke_width=2, stroke_dasharray="6 5"),
+        label(t_start + 3, 18, "START", size=16, anchor="middle", fill=ACCENT),
+        line((t_stop + 3, 30), (t_stop + 3, 262), stroke=ACCENT, stroke_width=2, stroke_dasharray="6 5"),
+        label(t_stop + 3, 18, "STOP", size=16, anchor="middle", fill=ACCENT),
+        # ACK: the device holds SDA low
+        f'<rect x="{ack_x + 3}" y="{sda_hi - 8}" width="{period - 6}" height="{sda_lo - sda_hi + 16}" rx="4" fill="{TEAL}" fill-opacity="0.15" stroke="none"/>',
+        line(*scl),
+        line(*sda),
+    ]
+    for i, n in enumerate(names):
+        cx = first + i * period + 40
+        fill = TEAL if n == "ACK" else INK
+        parts.append(label(cx, 160, n, size=16, anchor="middle", fill=fill))
+    # bracket under the address bits
+    a0, a1 = first + 4, first + 7 * period - 4
+    parts += [
+        line((a0, 262), (a0, 270), (a1, 270), (a1, 262), stroke_width=2),
+        label((a0 + a1) / 2, 292, "Address 0x70", size=16, anchor="middle"),
+    ]
+    return svg(1020, 305, "\n".join(parts))
+
+
 DRAWINGS = {
     "resistor": resistor,
     "capacitor": capacitor,
@@ -200,6 +410,11 @@ DRAWINGS = {
     "divider": divider,
     "divider-current": lambda: divider(show_current=True),
     "divider-r2": lambda: divider(highlight_r2=True),
+    "matrix": matrix,
+    "matrix-scan": matrix_scan,
+    "i2c-bus": i2c_bus,
+    "i2c-open-drain": open_drain,
+    "i2c-timing": i2c_timing,
 }
 
 

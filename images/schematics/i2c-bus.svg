@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 310">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="20" y="100" width="150" height="115" rx="6" fill="#FFFFFF"/>
+<text x="95" y="157.5" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">ESP32-S3</text>
+<polyline points="215,40 300,40"/>
+<text x="258" y="20" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">3.3 V</text>
+<polyline points="230,40 230,55"/>
+<polyline points="230,55 220,63.3333 240,71.6667 220,80 240,88.3333 220,96.6667 230,105"/>
+<polyline points="230,105 230,130"/>
+<polyline points="285,40 285,55"/>
+<polyline points="285,55 275,63.3333 295,71.6667 275,80 295,88.3333 275,96.6667 285,105"/>
+<polyline points="285,105 285,185"/>
+<circle cx="230" cy="130" r="5" fill="#15141A" stroke="none"/>
+<circle cx="285" cy="185" r="5" fill="#15141A" stroke="none"/>
+<polyline points="170,130 760,130" stroke="#FF5B1F"/>
+<polyline points="170,185 760,185" stroke="#FF5B1F"/>
+<text x="772" y="130" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="start" dominant-baseline="central">SDA</text>
+<text x="772" y="185" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="start" dominant-baseline="central">SCL</text>
+<polyline points="360,130 360,235"/>
+<circle cx="360" cy="130" r="5" fill="#15141A" stroke="none"/>
+<polyline points="400,185 400,235"/>
+<circle cx="400" cy="185" r="5" fill="#15141A" stroke="none"/>
+<rect x="315" y="235" width="130" height="62" rx="6" fill="#FFFFFF"/>
+<text x="380" y="255" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">Temperature</text>
+<text x="380" y="278" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">0x70</text>
+<polyline points="510,130 510,235"/>
+<circle cx="510" cy="130" r="5" fill="#15141A" stroke="none"/>
+<polyline points="550,185 550,235"/>
+<circle cx="550" cy="185" r="5" fill="#15141A" stroke="none"/>
+<rect x="465" y="235" width="130" height="62" rx="6" fill="#FFFFFF"/>
+<text x="530" y="255" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">Accelerometer</text>
+<text x="530" y="278" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">0x19</text>
+<polyline points="660,130 660,235"/>
+<circle cx="660" cy="130" r="5" fill="#15141A" stroke="none"/>
+<polyline points="700,185 700,235"/>
+<circle cx="700" cy="185" r="5" fill="#15141A" stroke="none"/>
+<rect x="615" y="235" width="130" height="62" rx="6" fill="#FFFFFF"/>
+<text x="680" y="266" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">Qwiic port</text>
+</g>
+</svg>

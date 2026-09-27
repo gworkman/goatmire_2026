@@ -565,6 +565,10 @@
 // Subscript helper for variable names like V_out: #var[V][out].
 #let var(name, sub) = [#name#text(size: 0.6em, baseline: 0.25em, sub)]
 
+// "I²C" with a synthesized superscript: New Amsterdam has no ² glyph, so the
+// real character falls back to another font.
+#let i2c = [I#h(0.05em)#super(typographic: false)[2]#h(0.03em)C]
+
 // Boxed node for simple block diagrams.
 #let node(body, fill: palette.paper, fg: palette.ink, width: auto) = box(
   width: width,

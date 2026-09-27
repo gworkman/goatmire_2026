@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 325">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="110,50 110,150 430,150 430,250" stroke="#FF5B1F" stroke-width="12" stroke-opacity="0.25"/>
+<polyline points="70,40 150,40"/>
+<text x="110" y="20" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">3.3 V</text>
+<polyline points="110,40 110,55"/>
+<polyline points="110,55 98,66.6667 122,78.3333 98,90 122,101.667 98,113.333 110,125"/>
+<polyline points="110,125 110,150"/>
+<text x="88" y="91" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="end" dominant-baseline="central">pull-up</text>
+<circle cx="110" cy="150" r="5" fill="#15141A" stroke="none"/>
+<polyline points="110,150 680,150" stroke="#FF5B1F"/>
+<text x="692" y="150" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="start" dominant-baseline="central">SDA</text>
+<circle cx="290" cy="150" r="5" fill="#15141A" stroke="none"/>
+<polyline points="290,150 290,200" stroke="#15141A"/>
+<circle cx="290" cy="200" r="4" fill="#15141A" stroke="none"/>
+<polyline points="290,200 310,234" stroke="#15141A"/>
+<circle cx="290" cy="240" r="4" fill="#15141A" stroke="none"/>
+<polyline points="290,240 290,262" stroke="#15141A"/>
+<polyline points="274,262 306,262" stroke="#15141A"/>
+<polyline points="280,269 300,269" stroke="#15141A"/>
+<polyline points="286,276 294,276" stroke="#15141A"/>
+<text x="290" y="305" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">ESP32</text>
+<circle cx="430" cy="150" r="5" fill="#15141A" stroke="none"/>
+<polyline points="430,150 430,200" stroke="#FF5B1F"/>
+<circle cx="430" cy="200" r="4" fill="#FF5B1F" stroke="none"/>
+<polyline points="430,200 430,240" stroke="#FF5B1F"/>
+<circle cx="430" cy="240" r="4" fill="#FF5B1F" stroke="none"/>
+<polyline points="430,240 430,262" stroke="#FF5B1F"/>
+<polyline points="414,262 446,262" stroke="#FF5B1F"/>
+<polyline points="420,269 440,269" stroke="#FF5B1F"/>
+<polyline points="426,276 434,276" stroke="#FF5B1F"/>
+<text x="430" y="305" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">Temperature</text>
+<circle cx="570" cy="150" r="5" fill="#15141A" stroke="none"/>
+<polyline points="570,150 570,200" stroke="#15141A"/>
+<circle cx="570" cy="200" r="4" fill="#15141A" stroke="none"/>
+<polyline points="570,200 590,234" stroke="#15141A"/>
+<circle cx="570" cy="240" r="4" fill="#15141A" stroke="none"/>
+<polyline points="570,240 570,262" stroke="#15141A"/>
+<polyline points="554,262 586,262" stroke="#15141A"/>
+<polyline points="560,269 580,269" stroke="#15141A"/>
+<polyline points="566,276 574,276" stroke="#15141A"/>
+<text x="570" y="305" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">Accelerometer</text>
+</g>
+</svg>

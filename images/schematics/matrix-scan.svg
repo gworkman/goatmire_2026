@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 346">
+<g fill="none" stroke="#15141A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="290,36 290,161 335,161 335,196 110,196" stroke="#FF5B1F" stroke-width="12" stroke-opacity="0.25"/>
+<polyline points="160,36 160,326" stroke="#15141A"/>
+<text x="160" y="14" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">COL0</text>
+<polyline points="290,36 290,326" stroke="#FF5B1F"/>
+<text x="290" y="14" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#FF5B1F" stroke="none" text-anchor="middle" dominant-baseline="central">COL1</text>
+<polyline points="420,36 420,326" stroke="#15141A"/>
+<text x="420" y="14" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="middle" dominant-baseline="central">COL2</text>
+<polyline points="110,86 490,86"/>
+<text x="98" y="86" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="end" dominant-baseline="central">ROW0</text>
+<polyline points="110,196 490,196"/>
+<text x="98" y="196" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="end" dominant-baseline="central">ROW1</text>
+<polyline points="110,306 490,306"/>
+<text x="98" y="306" font-family="Poppins, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#15141A" stroke="none" text-anchor="end" dominant-baseline="central">ROW2</text>
+<polyline points="160,51 190,51"/>
+<rect x="190" y="36.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="205,66 205,86"/>
+<circle cx="160" cy="51" r="4" fill="#15141A" stroke="none"/>
+<circle cx="205" cy="86" r="4" fill="#15141A" stroke="none"/>
+<polyline points="160,161 190,161"/>
+<rect x="190" y="146.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="205,176 205,196"/>
+<circle cx="160" cy="161" r="4" fill="#15141A" stroke="none"/>
+<circle cx="205" cy="196" r="4" fill="#15141A" stroke="none"/>
+<polyline points="160,271 190,271"/>
+<rect x="190" y="256.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="205,286 205,306"/>
+<circle cx="160" cy="271" r="4" fill="#15141A" stroke="none"/>
+<circle cx="205" cy="306" r="4" fill="#15141A" stroke="none"/>
+<polyline points="290,51 320,51"/>
+<rect x="320" y="36.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="335,66 335,86"/>
+<circle cx="290" cy="51" r="4" fill="#15141A" stroke="none"/>
+<circle cx="335" cy="86" r="4" fill="#15141A" stroke="none"/>
+<polyline points="290,161 320,161"/>
+<rect x="320" y="146.0" width="30" height="30" rx="4" fill="#FF5B1F" stroke="#15141A"/>
+<polyline points="335,176 335,196"/>
+<circle cx="290" cy="161" r="4" fill="#15141A" stroke="none"/>
+<circle cx="335" cy="196" r="4" fill="#15141A" stroke="none"/>
+<polyline points="290,271 320,271"/>
+<rect x="320" y="256.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="335,286 335,306"/>
+<circle cx="290" cy="271" r="4" fill="#15141A" stroke="none"/>
+<circle cx="335" cy="306" r="4" fill="#15141A" stroke="none"/>
+<polyline points="420,51 450,51"/>
+<rect x="450" y="36.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="465,66 465,86"/>
+<circle cx="420" cy="51" r="4" fill="#15141A" stroke="none"/>
+<circle cx="465" cy="86" r="4" fill="#15141A" stroke="none"/>
+<polyline points="420,161 450,161"/>
+<rect x="450" y="146.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="465,176 465,196"/>
+<circle cx="420" cy="161" r="4" fill="#15141A" stroke="none"/>
+<circle cx="465" cy="196" r="4" fill="#15141A" stroke="none"/>
+<polyline points="420,271 450,271"/>
+<rect x="450" y="256.0" width="30" height="30" rx="4" fill="#FFFFFF" stroke="#15141A"/>
+<polyline points="465,286 465,306"/>
+<circle cx="420" cy="271" r="4" fill="#15141A" stroke="none"/>
+<circle cx="465" cy="306" r="4" fill="#15141A" stroke="none"/>
+</g>
+</svg>
