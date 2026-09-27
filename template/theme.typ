@@ -284,6 +284,22 @@
   [],
 )
 
+// Grid of images filling the slide. `none` leaves a cell empty but keeps its
+// space, so consecutive slides can reveal images one at a time.
+#let image-grid-slide(title: none, kicker: none, columns: 2, gutter: 16pt, ..items) = slide(
+  title: title,
+  kicker: kicker,
+  grid(
+    columns: (1fr,) * columns,
+    rows: (1fr,),
+    column-gutter: gutter,
+    align: center + horizon,
+    ..items.pos().map(src => if src == none { [] } else {
+      _img(src, width: 100%, height: 100%, fit: "contain")
+    }),
+  ),
+)
+
 // Full-bleed background image with a title in the lower-left corner.
 #let bleed-slide(src, title: none, subtitle: none) = page(
   background: {
@@ -507,6 +523,20 @@
   stroke: (_, y) => if y > 0 { (bottom: 0.5pt + palette.line) },
   table.header(..cells.pos().slice(0, if type(columns) == int { columns } else { columns.len() }).map(c => text(fill: palette.paper, weight: "semibold", size: 14pt, c))),
   ..cells.pos().slice(if type(columns) == int { columns } else { columns.len() }).map(c => text(size: 15pt, c)),
+)
+
+// Label / value rows, e.g. hardware specs. Items are (label, value) pairs.
+#let spec-list(..items) = grid(
+  columns: (auto, 1fr),
+  column-gutter: 18pt,
+  row-gutter: 0pt,
+  stroke: (_, y) => (bottom: 0.5pt + palette.line),
+  inset: (x: 0pt, y: 9pt),
+  align: (left + horizon, left + horizon),
+  ..items.pos().map(((label, value)) => (
+    text(size: 12pt, weight: "semibold", tracking: 0.15em, fill: palette.accent, upper(label)),
+    text(size: 17pt, value),
+  )).flatten(),
 )
 
 // Boxed node for simple block diagrams.
