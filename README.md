@@ -1,6 +1,6 @@
 # Goatmire 2026 badge workshop slides
 
-Typst slide deck for the Goatmire 2026 name badge workshop (ESP32-S3, LCD, onboard sensors, 69-key keyboard).
+Typst slide deck for the Goatmire 2026 name badge workshop (ESP32-S3, LCD, onboard sensors, 69-character keyboard).
 
 ## Build
 

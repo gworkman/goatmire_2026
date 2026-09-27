@@ -50,7 +50,7 @@
 // Footer: event mark on the left, "NN / TT" on the right.
 // `pill` puts the page number on a paper-coloured chip, for slides where the
 // footer sits on top of an image.
-#let _footer(fg: palette.muted, mark: palette.accent, pill: false) = context {
+#let _footer(fg: palette.muted, mark: palette.accent, pill: false, brand: true) = context {
   let n = counter(page).get().first()
   let total = counter(page).final().first()
   let number = _brand(size: 15pt)[
@@ -60,7 +60,7 @@
   grid(
     columns: (1fr, auto),
     align: (left + horizon, right + horizon),
-    _brand(size: 15pt, tracking: 0.06em)[GOATMIRE #text(fill: mark)[2026]],
+    if brand { _brand(size: 15pt, tracking: 0.06em)[GOATMIRE #text(fill: mark)[2026]] },
     if pill {
       box(fill: palette.paper, inset: (x: 8pt, y: 4pt), radius: 99pt, text(fill: palette.ink, number))
     } else { number },
@@ -163,30 +163,40 @@
   title: [],
   subtitle: none,
   presenter: none,
+  organization: none,
   date: none,
+  location: none,
   visual: none,
 ) = page(fill: palette.ink, footer: none, background: none, {
   set text(fill: palette.paper)
   let left = {
     _brand(size: 26pt, fill: palette.accent, tracking: 0.12em)[#upper(event-name)]
     v(0.2em)
-    block(below: 0.6em, par(leading: 0.05em, _brand(size: 104pt, title)))
+    block(below: 0.6em, par(leading: 0.18em, _brand(size: 104pt, title)))
     if subtitle != none {
       block(text(size: 22pt, weight: "light", subtitle))
     }
-    v(1.2em)
-    if presenter != none or date != none {
-      set text(size: 14pt, fill: palette.paper.transparentize(35%))
-      (presenter, date).filter(x => x != none).join[#h(0.6em)·#h(0.6em)]
+    v(1em)
+    if presenter != none {
+      block(below: 0.35em, text(size: 22pt, weight: "semibold", presenter))
+    }
+    if organization != none {
+      block(below: 0.35em, text(size: 18pt, fill: palette.paper.transparentize(25%), organization))
+    }
+    let when-where = (date, location).filter(x => x != none)
+    if when-where.len() > 0 {
+      v(0.6em)
+      set text(size: 14pt, fill: palette.paper.transparentize(45%))
+      when-where.join[#h(0.6em)#text(fill: palette.accent)[·]#h(0.6em)]
     }
   }
   grid(
-    columns: if visual != none { (1.15fr, 1fr) } else { (1fr,) },
+    columns: if visual != none { (1.4fr, 1fr) } else { (1fr,) },
     rows: (1fr,),
     column-gutter: 1.2cm,
     align: horizon,
     left,
-    ..if visual != none { (align(center + horizon, _img(visual, width: 100%)),) },
+    ..if visual != none { (align(center + horizon, _img(visual, height: 88%, fit: "contain")),) },
   )
 })
 
@@ -265,6 +275,14 @@
     align(center, text(size: 13pt, fill: palette.muted, caption))
   }
 })
+
+// Image fills the whole page, untouched: no title, overlay or top bar. For
+// images that are already a finished 16:9 slide. Only the page number shows.
+#let image-page(src) = page(
+  background: _img(src, width: 100%, height: 100%, fit: "cover"),
+  footer: _footer(pill: true, brand: false),
+  [],
+)
 
 // Full-bleed background image with a title in the lower-left corner.
 #let bleed-slide(src, title: none, subtitle: none) = page(
