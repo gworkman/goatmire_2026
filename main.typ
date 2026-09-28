@@ -15,6 +15,7 @@
 #include "slides/08-deep-dives.typ"
 #include "slides/09-getting-started.typ"
 #include "slides/10-firmware.typ"
+#include "slides/11-more-info.typ"
 
 // Reference deck with every layout and component:
 // #include "slides/examples.typ"
