@@ -130,13 +130,15 @@
     radius: 3pt,
     it,
   )
+  // Size is a set rule, not baked into the block, so a slide can override it.
+  show raw.where(block: true): set text(size: 13pt)
   show raw.where(block: true): it => block(
     fill: palette.surface,
     stroke: (left: 4pt + palette.accent),
     inset: (x: 16pt, y: 14pt),
     radius: (right: 6pt),
     width: 100%,
-    text(size: 13pt, it),
+    it,
   )
 
   body
@@ -568,6 +570,35 @@
 // "I²C" with a synthesized superscript: New Amsterdam has no ² glyph, so the
 // real character falls back to another font.
 #let i2c = [I#h(0.05em)#super(typographic: false)[2]#h(0.03em)C]
+
+// Terminal block. Lines are command strings, or (command, comment) pairs.
+// Commands are strings, so shell characters like * and ~ render literally.
+#let shell(title: none, size: 18pt, ..lines) = block(
+  width: 100%,
+  fill: palette.ink,
+  radius: 8pt,
+  inset: (x: 20pt, y: 16pt),
+  {
+    set text(font: mono-font, size: size, fill: palette.paper)
+    set par(leading: 0.55em)
+    if title != none {
+      block(below: 12pt, text(font: body-font, size: 12pt, weight: "semibold", tracking: 0.15em, fill: palette.paper.transparentize(40%), upper(title)))
+    }
+    grid(
+      columns: (auto, auto, 1fr),
+      column-gutter: (0.6em, 1.5em),
+      row-gutter: 0.75em,
+      ..lines.pos().map(line => {
+        let (cmd, note) = if type(line) == array { line } else { (line, none) }
+        (
+          text(fill: palette.accent)[\$],
+          text(cmd),
+          if note != none { text(fill: palette.paper.transparentize(50%))[\# #note] },
+        )
+      }).flatten(),
+    )
+  },
+)
 
 // Boxed node for simple block diagrams.
 #let node(body, fill: palette.paper, fg: palette.ink, width: auto) = box(

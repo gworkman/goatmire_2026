@@ -13,6 +13,8 @@
 #include "slides/06-electronics.typ"
 #include "slides/07-hardware-blocks.typ"
 #include "slides/08-deep-dives.typ"
+#include "slides/09-getting-started.typ"
+#include "slides/10-firmware.typ"
 
 // Reference deck with every layout and component:
 // #include "slides/examples.typ"
