@@ -7,7 +7,7 @@ Typst slide deck for the Goatmire 2026 name badge workshop (ESP32-S3, LCD, onboa
 Requires [Typst](https://typst.app) 0.13+.
 
 ```sh
-make          # build/goatmire-2026.pdf
+make          # build/goatmire-2026.pdf and build/badge-tutorial.pdf
 make watch    # rebuild on save
 make open     # build and open the PDF
 ```
@@ -17,7 +17,8 @@ Or directly: `typst compile --font-path fonts main.typ build/goatmire-2026.pdf`
 ## Layout
 
 ```
-main.typ              entry point: document setup + includes
+main.typ              workshop deck: document setup + includes
+tutorial.typ          3-minute badge tutorial deck
 template/theme.typ    colours, fonts, slide layouts and components
 slides/               slide content (one file per part of the talk)
 images/               images and diagrams

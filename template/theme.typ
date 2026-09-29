@@ -571,7 +571,8 @@
 // real character falls back to another font.
 #let i2c = [I#h(0.05em)#super(typographic: false)[2]#h(0.03em)C]
 
-// Terminal block. Lines are command strings, or (command, comment) pairs.
+// Terminal block. Lines are command strings, (command, comment) pairs, or
+// `none` for a blank line.
 // Commands are strings, so shell characters like * and ~ render literally.
 #let shell(title: none, size: 18pt, ..lines) = block(
   width: 100%,
@@ -589,6 +590,8 @@
       column-gutter: (0.6em, 1.5em),
       row-gutter: 0.75em,
       ..lines.pos().map(line => {
+        // `none` is a blank line between groups of commands.
+        if line == none { return (hide[\$], [], []) }
         let (cmd, note) = if type(line) == array { line } else { (line, none) }
         (
           text(fill: palette.accent)[\$],
