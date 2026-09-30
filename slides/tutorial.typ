@@ -122,17 +122,17 @@
 
 #let qr-card(src, what, name, url) = block(
   width: 100%,
-  height: 7.6cm,
+  height: 7cm,
   fill: palette.surface,
   radius: 8pt,
-  inset: 14pt,
+  inset: (x: 6pt, y: 12pt),
   align(center + top)[
     #text(size: 11pt, weight: "semibold", tracking: 0.15em, fill: palette.accent, upper(what))
     #v(-0.3em)
-    #image(src, width: 3.6cm)
+    #image(src, width: 3.2cm)
     #v(0.1em)
-    #text(size: 13pt, weight: "semibold", name) \
-    #text(size: 12pt, fill: palette.muted, url)
+    #text(size: 15pt, weight: "semibold", name) \
+    #text(size: 10pt, fill: palette.muted, url)
   ],
 )
 
@@ -142,25 +142,27 @@
     column-gutter: 1cm,
     row-gutter: 12pt,
     // Top-aligned so both headings share a line and the QR code lines up with the cards.
-    align: top,
+    // The link row is centred, as its two links are different sizes.
+    align: (_, y) => if y == 1 { horizon } else { top },
     {
       text(size: 12pt, weight: "semibold", tracking: 0.15em, fill: palette.accent)[INSTRUCTIONS]
       v(0.2em)
-      image("/images/qr-avm-badge.svg", width: 7.6cm)
+      image("/images/qr-avm-badge.svg", width: 7cm)
     },
     {
       text(size: 12pt, weight: "semibold", tracking: 0.15em, fill: palette.accent)[OTHER STUFF I DO]
       v(0.2em)
       grid(
-        columns: (1fr, 1fr, 1fr),
-        gutter: 12pt,
+        columns: (1fr, 1fr, 1fr, 1fr),
+        gutter: 8pt,
         qr-card("/images/qr-protolux.svg", [Hire me], [Protolux Electronics], "protolux.io"),
         qr-card("/images/qr-nerves-meetup.svg", [Meetup], [Nerves Meetup], "nervesmeetup.eu"),
         qr-card("/images/qr-macro-mayhem.svg", [Podcast], [Macro Mayhem], "macromayhem.fm"),
+        qr-card("/images/qr-nerves-starter-kit.svg", [NSK], [Nerves Starter Kit], "protolux.io/store"),
       )
     },
     // Links share a row so they sit on one line.
-    gh[protolux-electronics/avm_badge],
+    gh(size: 12pt)[protolux-electronics/avm_badge],
     [#text(size: 14pt, fill: palette.muted)[These slides:] #h(0.3em) #gh[gworkman/goatmire_2026]],
   )
 ]
