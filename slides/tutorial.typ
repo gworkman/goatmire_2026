@@ -51,8 +51,6 @@
     image("/images/qr-avm-badge.svg", width: 5.3cm),
     shell(
       size: 13.5pt,
-      "brew install esptool",
-      none,
       "git clone https://" + repo,
       "cd avm_badge",
       "mix deps.get",
@@ -60,7 +58,7 @@
       "mix atomvm.esp32.flash",
     ),
     text(size: 14pt, fill: palette.muted)[Scan for the repo],
-    text(size: 14pt, fill: palette.muted)[On Ubuntu: `pipx install esptool`],
+    text(size: 14pt, fill: palette.muted)[No esptool to install: the first flash downloads it],
   )
 ]
 
@@ -68,9 +66,9 @@
 
 #slide(title: [Start from scratch], kicker: [Re-flash everything], center: true)[
   #shell(
-    ("esptool erase_flash", "wipe the whole chip"),
+    ("mix atomvm.esp32.erase_flash", "wipe the whole chip"),
     ("mix badge.base", "bootloader, VM, boot.avm"),
-    ("tools/flashassets.sh", "fonts, icons, splash logo"),
+    ("mix badge.assets --flash", "fonts, icons, splash logo"),
     ("mix atomvm.esp32.flash", "the firmware"),
   )
   #v(0.4em)

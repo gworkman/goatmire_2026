@@ -19,23 +19,13 @@
 
 // --- Tools -----------------------------------------------------------------
 
-#slide(title: [Install the tools], kicker: [Getting started], center: true)[
-  You need *esptool* to write to the badge, and the *GitHub CLI* to download the VM.
-
-  #v(0.3em)
-  #cols(gutter: 1cm)[
-    #shell(title: [macOS],
-      "brew install esptool gh",
-      "gh auth login",
-    )
-  ][
-    #shell(title: [Ubuntu],
-      "sudo apt install pipx gh",
-      "pipx install esptool",
-      "pipx ensurepath",
-      "gh auth login",
-    )
-    #text(size: 14pt, fill: palette.muted)[Open a new terminal after `pipx ensurepath`.]
+#slide(title: [What you need], kicker: [Getting started], center: true)[
+  - *Elixir and Erlang*, which you already have
+  - *curl*, already on macOS and most Linux distributions
+  - *No esptool.* The flash tasks run it through Pythonx, which downloads Python and esptool the first time you flash
+  #v(0.4em)
+  #callout(kind: "note", title: [Linux])[
+    Add yourself to the `dialout` group so you can open the badge's serial port.
   ]
 ]
 
@@ -59,10 +49,11 @@
   #v(0.3em)
   #shell(
     ("mix badge.base", "once: bootloader, VM, boot.avm"),
-    ("tools/flashassets.sh", "once: fonts, icons, splash logo"),
+    ("mix badge.assets --flash", "once: fonts, icons, splash logo"),
     ("mix atomvm.esp32.flash", "the firmware, every time"),
   )
-
+  #v(0.4em)
+  #text(size: 15pt, fill: palette.muted)[The first flash downloads Python and esptool, so it needs a network connection.]
 ]
 
 #slide(title: [Did it work?], kicker: [Getting started], center: true)[
